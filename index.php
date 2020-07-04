@@ -44,6 +44,7 @@ if ((isset($_GET['iserial'])) and (isset($_GET['username']))) {
     } elseif (mysqli_num_rows($sql) > 0) {
         $sql_q = mysqli_query($mysqli, "UPDATE free_users SET username = $nickname WHERE serial_num = $serialn");
         echo "Updated.";
+        "UPDATE `free_users` SET `username`=$nickname WHERE serial_num=$serialn"
     }
   }
 }
