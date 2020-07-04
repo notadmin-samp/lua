@@ -42,9 +42,8 @@ if ((isset($_GET['iserial'])) and (isset($_GET['username']))) {
         $sql_query = mysqli_query($mysqli, "INSERT INTO `free_users`(`username`, `serial_num`) VALUES ('{$nickname}', '{$serialn}')");
         echo "Success.";
     } elseif (mysqli_num_rows($sql) > 0) {
-        $sql_q = mysqli_query($mysqli, "UPDATE free_users SET username = $nickname WHERE serial_num = $serialn");
+        $sql_q = mysqli_query($mysqli, "UPDATE `free_users` SET `username`=$nickname WHERE serial_num=$serialn");
         echo "Updated.";
-        "UPDATE `free_users` SET `username`=$nickname WHERE serial_num=$serialn"
     }
   }
 }
