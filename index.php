@@ -42,7 +42,8 @@ if ((isset($_GET['iserial'])) and (isset($_GET['username']))) {
         $sql_query = mysqli_query($mysqli, "INSERT INTO `free_users`(`username`, `serial_num`) VALUES ('{$nickname}', '{$serialn}')");
         echo "Success.";
     } elseif (mysqli_num_rows($sql) > 0) {
-        echo "-2";
+        $sql_q = mysqli_query($mysqli, "UPDATE free_users SET username = $nickname WHERE serial_num = $serialn");
+        echo "Updated.";
     }
   }
 }
@@ -52,7 +53,7 @@ if ((isset($_GET['newcode'])) and (isset($_GET['auth'])) and (isset($_GET['clien
     $client = $_GET['client'];
     if ($client == "lua") {
         $auth2 = $_GET['2auth'];
-        echo "penis"; 
+        echo "penis";
     }
 }
 if ((isset($_GET['db'])) and (isset($_GET['from'])) and (isset($_GET['where'])) and (isset($_GET['where2'])) and (isset($_GET['row']))) {
